@@ -1,0 +1,8 @@
+prefix=/home/brl/pa_ws/install
+
+Name: pa1
+Description: Description of pa1
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
