@@ -7,5 +7,6 @@
 subdirs("gtest")
 subdirs("turtlebot3_simulations/turtlebot3_simulations")
 subdirs("pa1")
+subdirs("pa2")
 subdirs("turtlebot3_simulations/turtlebot3_fake")
 subdirs("turtlebot3_simulations/turtlebot3_gazebo")

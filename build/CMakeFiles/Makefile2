@@ -56,6 +56,7 @@ CMAKE_BINARY_DIR = /home/brl/pa_ws/build
 all: gtest/all
 all: turtlebot3_simulations/turtlebot3_simulations/all
 all: pa1/all
+all: pa2/all
 all: turtlebot3_simulations/turtlebot3_fake/all
 all: turtlebot3_simulations/turtlebot3_gazebo/all
 
@@ -65,6 +66,7 @@ all: turtlebot3_simulations/turtlebot3_gazebo/all
 preinstall: gtest/preinstall
 preinstall: turtlebot3_simulations/turtlebot3_simulations/preinstall
 preinstall: pa1/preinstall
+preinstall: pa2/preinstall
 preinstall: turtlebot3_simulations/turtlebot3_fake/preinstall
 preinstall: turtlebot3_simulations/turtlebot3_gazebo/preinstall
 
@@ -79,6 +81,7 @@ clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: turtlebot3_simulations/turtlebot3_simulations/clean
 clean: pa1/clean
+clean: pa2/clean
 clean: turtlebot3_simulations/turtlebot3_fake/clean
 clean: turtlebot3_simulations/turtlebot3_gazebo/clean
 
@@ -167,6 +170,24 @@ pa1/clean: pa1/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 pa1/clean: pa1/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 .PHONY : pa1/clean
+
+#=============================================================================
+# Directory level rules for directory pa2
+
+# Recursive "all" directory target.
+pa2/all:
+
+.PHONY : pa2/all
+
+# Recursive "preinstall" directory target.
+pa2/preinstall:
+
+.PHONY : pa2/preinstall
+
+# Recursive "clean" directory target.
+pa2/clean:
+
+.PHONY : pa2/clean
 
 #=============================================================================
 # Directory level rules for directory turtlebot3_simulations/turtlebot3_fake

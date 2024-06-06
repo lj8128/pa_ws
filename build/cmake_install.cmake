@@ -133,6 +133,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/brl/pa_ws/build/gtest/cmake_install.cmake")
   include("/home/brl/pa_ws/build/turtlebot3_simulations/turtlebot3_simulations/cmake_install.cmake")
   include("/home/brl/pa_ws/build/pa1/cmake_install.cmake")
+  include("/home/brl/pa_ws/build/pa2/cmake_install.cmake")
   include("/home/brl/pa_ws/build/turtlebot3_simulations/turtlebot3_fake/cmake_install.cmake")
   include("/home/brl/pa_ws/build/turtlebot3_simulations/turtlebot3_gazebo/cmake_install.cmake")
 

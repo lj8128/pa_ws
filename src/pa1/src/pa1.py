@@ -83,6 +83,7 @@ class PaOne:
                     dest_end_reached = True
 
             self.cmd_vel_pub.publish(twist)
+            rate.sleep()
 
     def draw_square(self, target_side_length):
         twist = Twist()
@@ -114,6 +115,7 @@ class PaOne:
                 side_count += 1
 
             self.cmd_vel_pub.publish(twist)
+            rate.sleep()
 
     def rotate_in_place(self):
         twist = Twist()
@@ -123,6 +125,7 @@ class PaOne:
         while not rospy.is_shutdown():
             twist.angular.z = 0.3
             self.cmd_vel_pub.publish(twist)
+            rate.sleep()
 
     def move_in_a_circle(self):
         linear_velocity = 0.3
@@ -137,6 +140,7 @@ class PaOne:
             twist.linear.x = linear_velocity
             twist.angular.z = angular_velocity
             self.cmd_vel_pub.publish(twist)
+            rate.sleep()
 
 
 if __name__ == '__main__':
