@@ -1,8 +1,8 @@
-# Install script for directory: /home/brl/pa_ws/src/pa1
+# Install script for directory: /my_ros_data/pa_ws/src/pa1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/brl/pa_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/my_ros_data/pa_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/brl/pa_ws/build/pa1/catkin_generated/installspace/pa1.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/my_ros_data/pa_ws/build/pa1/catkin_generated/installspace/pa1.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pa1/cmake" TYPE FILE FILES
-    "/home/brl/pa_ws/build/pa1/catkin_generated/installspace/pa1Config.cmake"
-    "/home/brl/pa_ws/build/pa1/catkin_generated/installspace/pa1Config-version.cmake"
+    "/my_ros_data/pa_ws/build/pa1/catkin_generated/installspace/pa1Config.cmake"
+    "/my_ros_data/pa_ws/build/pa1/catkin_generated/installspace/pa1Config-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pa1" TYPE FILE FILES "/home/brl/pa_ws/src/pa1/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pa1" TYPE FILE FILES "/my_ros_data/pa_ws/src/pa1/package.xml")
 endif()
 

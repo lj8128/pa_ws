@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "pa1"
-PROJECT_SPACE_DIR = "/home/brl/pa_ws/install"
+PROJECT_SPACE_DIR = "/my_ros_data/pa_ws/install"
 PROJECT_VERSION = "0.0.0"

@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/brl/pa_ws/install/setup.sh
+    local-name: /my_ros_data/pa_ws/install/setup.sh

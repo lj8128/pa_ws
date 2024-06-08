@@ -1,4 +1,4 @@
-prefix=/home/brl/pa_ws/install
+prefix=/my_ros_data/pa_ws/install
 
 Name: pa1
 Description: Description of pa1

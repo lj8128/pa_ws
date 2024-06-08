@@ -10,40 +10,6 @@ class PaTwo:
         self.scan_sub = rospy.Subscriber('/scan', LaserScan, self.scan_cb)
         self.init_zones()
         self.init_states()
-        self.init_pid() 
-
-    def scan_cb(self, msg):
-        self.zone_0 = min(msg.ranges[0:21] + msg.ranges[340:360])
-        self.zone_1 = min(msg.ranges[260:340])
-        self.zone_2 = min(msg.ranges[180:260])
-        self.update_states()
-
-    def update_states(self):
-        if self.zone_alert(self.zone_0):
-            self.states['front_wall'] = True
-            self.falsify_except('front_wall')
-        elif (self.zone_alert(self.zone_1) and
-                self.zone_alert(self.zone_2) and
-                self.zone_1 > self.zone_2):
-            self.states['right_corner_wall'] = True
-            self.falsify_except('right_corner_wall')
-        elif self.zone_alert(self.zone_1):
-            self.states['side_wall'] = True
-            self.falsify_except('side_wall')
-        elif self.zone_alert(self.zone_2):
-            self.states['right_corner_wall'] = True
-            self.falsify_except('right_corner_wall')
-        else:
-            self.states['no_walls'] = True
-            self.falsify_except('no_walls')
-
-    def zone_alert(self, zone):
-        return not math.isinf(zone)
-
-    def falsify_except(self, cur_state):
-        for state in self.states.keys():
-            if state != cur_state:
-                self.states[state] = False
 
     def init_zones(self):
         self.zone_0 = 0.0
@@ -53,99 +19,92 @@ class PaTwo:
     def init_states(self):
         self.states = {
                 'no_walls': False,
-                'front_wall': False,
-                'side_wall': False,
-                'right_corner_wall': False
+                'wall_at_front': False,
+                'wall_at_right_side': False,
+                'wall_at_right_corner': False
                 }
 
-    def init_pid(self):
-        # desired setpoint (e.g. desired distance from wall)
-        self.sp = 0.7
-        # tuning constant for proportional control
-        self.KP = 0.3 
-        # tuning constant for integral control
-        self.KI = 0.0
-        # tuning constant for derivative control
-        self.KD = 0.0
+    def scan_cb(self, msg):
+        self.zone_0 = min(msg.ranges[0:21] + msg.ranges[340:360])
+        self.zone_1 = min(msg.ranges[260:340])
+        self.zone_2 = min(msg.ranges[180:260])
+        self.update_states()
 
-        # error sum for integral control
-        self.error_sum = 0.0
+    def update_states(self):
+        if self.wall_detected(self.zone_0):
+            self.set_state('wall_at_front')
+        elif (self.wall_detected(self.zone_1) and
+                self.wall_detected(self.zone_2) and
+                self.zone_1 > self.zone_2):
+            self.set_state('wall_at_right_corner')
+        elif self.wall_detected(self.zone_1):
+            self.set_state('wall_at_right_side')
+        elif self.wall_detected(self.zone_2):
+            self.set_state('wall_at_right_corner')
+        else:
+            self.set_state('no_walls')
 
-        # prev error value for derivative control
-        self.prev_error = 0.0
+    def wall_detected(self, zone):
+        return not math.isinf(zone)
 
-    def pid_only(self):
-        rate = rospy.Rate(10)
-        MOD = 20
-        loop_counter = 0
+    def set_state(self, state):
+        for cur_state in self.states.keys():
+            self.states[cur_state] = True if cur_state == state else False 
 
-        while not rospy.is_shutdown():
-            cur_error = self.sp - self.cur_3_oclock_dist
-
-            # Proportional Control
-            pc = self.KP * cur_error
-
-            # Integral Control
-            self.error_sum += cur_error
-            ic = self.KI * self.error_sum
-
-            # Derivative Control
-            dc = self.KD * (cur_error - self.prev_error)
-            if loop_counter % MOD == 0:
-                self.prev_error = cur_error
-
-            control_sum = pc + ic + dc 
-
-            twist = Twist()
-            twist.linear.x = 0.2
-            twist.angular.z = control_sum
-            self.cmd_vel_pub.publish(twist)
-            loop_counter += 1
-            rate.sleep()
-    
     def follow_wall(self):
         rate = rospy.Rate(10)
-
         twist = Twist()
-
         loop_counter = 0
 
         while not rospy.is_shutdown():
             if self.states['no_walls']:
                 twist.linear.x = 0.2
-            elif self.states['front_wall']:
+            elif self.states['wall_at_front']:
                 twist.angular.z = 0.2
-            elif self.states['right_corner_wall']:
+            elif self.states['wall_at_right_corner']:
                 twist.angular.z = -0.2
-            elif self.states['side_wall']:
-                self.pid(loop_counter, twist)
+            elif self.states['wall_at_right_side']:
+                twist.linear.x = 0.2
+                twist.angular.z = self.pid(loop_counter)
             loop_counter += 1
-            rate.sleep()
             self.cmd_vel_pub.publish(twist)
+            rate.sleep()
 
-    def pid(self, loop_counter, twist):
+    def pid(self, loop_counter):
+         # desired setpoint (e.g. desired distance from wall)
+        SP = 0.7
+        # tuning constant for proportional control
+        KP = 0.2
+        # tuning constant for integral control
+        KI = 0.2
+        # tuning constant for derivative control
+        KD = 0.2
+
+        # error sum for integral control
+        error_sum = 0.0
+        # prev error value for derivative control
+        prev_error = 0.0
+        # constant used to update previous error only in certain intervals. 
         MOD = 20
-        cur_error = self.sp - self.zone_1
+        cur_error = SP - self.zone_1
 
         # Proportional Control
-        pc = self.KP * cur_error
+        pc = KP * cur_error
 
         # Integral Control
-        self.error_sum += cur_error
-        ic = self.KI * self.error_sum
+        error_sum += cur_error
+        ic = KI * error_sum
 
         # Derivative Control
-        dc = self.KD * (cur_error - self.prev_error)
+        dc = KD * (cur_error - prev_error)
         if loop_counter % MOD == 0:
-            self.prev_error = cur_error
+            prev_error = cur_error
 
-        control_sum = pc + ic + dc 
+        # Sum of control values
+        control_sum = pc + ic + dc
 
-        twist.linear.x = 0.2
-        twist.angular.z = control_sum
-
+        return control_sum
 
 if __name__ == '__main__':
     rospy.init_node('pa2')
     PaTwo().follow_wall()
-

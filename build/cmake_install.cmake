@@ -1,8 +1,8 @@
-# Install script for directory: /home/brl/pa_ws/src
+# Install script for directory: /my_ros_data/pa_ws/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/brl/pa_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/my_ros_data/pa_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,93 +49,90 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/brl/pa_ws/install/_setup_util.py")
+   "/my_ros_data/pa_ws/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/brl/pa_ws/install" TYPE PROGRAM FILES "/home/brl/pa_ws/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/my_ros_data/pa_ws/install" TYPE PROGRAM FILES "/my_ros_data/pa_ws/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/brl/pa_ws/install/env.sh")
+   "/my_ros_data/pa_ws/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/brl/pa_ws/install" TYPE PROGRAM FILES "/home/brl/pa_ws/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/my_ros_data/pa_ws/install" TYPE PROGRAM FILES "/my_ros_data/pa_ws/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/brl/pa_ws/install/setup.bash;/home/brl/pa_ws/install/local_setup.bash")
+   "/my_ros_data/pa_ws/install/setup.bash;/my_ros_data/pa_ws/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/brl/pa_ws/install" TYPE FILE FILES
-    "/home/brl/pa_ws/build/catkin_generated/installspace/setup.bash"
-    "/home/brl/pa_ws/build/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/my_ros_data/pa_ws/install" TYPE FILE FILES
+    "/my_ros_data/pa_ws/build/catkin_generated/installspace/setup.bash"
+    "/my_ros_data/pa_ws/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/brl/pa_ws/install/setup.sh;/home/brl/pa_ws/install/local_setup.sh")
+   "/my_ros_data/pa_ws/install/setup.sh;/my_ros_data/pa_ws/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/brl/pa_ws/install" TYPE FILE FILES
-    "/home/brl/pa_ws/build/catkin_generated/installspace/setup.sh"
-    "/home/brl/pa_ws/build/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/my_ros_data/pa_ws/install" TYPE FILE FILES
+    "/my_ros_data/pa_ws/build/catkin_generated/installspace/setup.sh"
+    "/my_ros_data/pa_ws/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/brl/pa_ws/install/setup.zsh;/home/brl/pa_ws/install/local_setup.zsh")
+   "/my_ros_data/pa_ws/install/setup.zsh;/my_ros_data/pa_ws/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/brl/pa_ws/install" TYPE FILE FILES
-    "/home/brl/pa_ws/build/catkin_generated/installspace/setup.zsh"
-    "/home/brl/pa_ws/build/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/my_ros_data/pa_ws/install" TYPE FILE FILES
+    "/my_ros_data/pa_ws/build/catkin_generated/installspace/setup.zsh"
+    "/my_ros_data/pa_ws/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/brl/pa_ws/install/.rosinstall")
+   "/my_ros_data/pa_ws/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/brl/pa_ws/install" TYPE FILE FILES "/home/brl/pa_ws/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/my_ros_data/pa_ws/install" TYPE FILE FILES "/my_ros_data/pa_ws/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/brl/pa_ws/build/gtest/cmake_install.cmake")
-  include("/home/brl/pa_ws/build/turtlebot3_simulations/turtlebot3_simulations/cmake_install.cmake")
-  include("/home/brl/pa_ws/build/pa1/cmake_install.cmake")
-  include("/home/brl/pa_ws/build/pa2/cmake_install.cmake")
-  include("/home/brl/pa_ws/build/turtlebot3_simulations/turtlebot3_fake/cmake_install.cmake")
-  include("/home/brl/pa_ws/build/turtlebot3_simulations/turtlebot3_gazebo/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/gtest/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/pa1/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/pa2/cmake_install.cmake")
 
 endif()
 
@@ -147,5 +144,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/brl/pa_ws/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/my_ros_data/pa_ws/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

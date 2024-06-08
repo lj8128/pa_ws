@@ -67,14 +67,14 @@ set(pa1_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(pa1_SOURCE_PREFIX /home/brl/pa_ws/src/pa1)
-  set(pa1_DEVEL_PREFIX /home/brl/pa_ws/devel)
+  set(pa1_SOURCE_PREFIX /my_ros_data/pa_ws/src/pa1)
+  set(pa1_DEVEL_PREFIX /my_ros_data/pa_ws/devel)
   set(pa1_INSTALL_PREFIX "")
   set(pa1_PREFIX ${pa1_DEVEL_PREFIX})
 else()
   set(pa1_SOURCE_PREFIX "")
   set(pa1_DEVEL_PREFIX "")
-  set(pa1_INSTALL_PREFIX /home/brl/pa_ws/install)
+  set(pa1_INSTALL_PREFIX /my_ros_data/pa_ws/install)
   set(pa1_PREFIX ${pa1_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/brl/pa_ws/install/lib;/home/brl/pa_ws/devel/lib;/home/brl/fid_pnp_2_ws/devel/lib;/home/brl/catkin_ws/devel/lib;/home/brl/interbotix_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /my_ros_data/pa_ws/install/lib;/my_ros_data/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

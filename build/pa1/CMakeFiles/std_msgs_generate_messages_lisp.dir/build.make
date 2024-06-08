@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/brl/pa_ws/src
+CMAKE_SOURCE_DIR = /my_ros_data/pa_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/brl/pa_ws/build
+CMAKE_BINARY_DIR = /my_ros_data/pa_ws/build
 
 # Utility rule file for std_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ pa1/CMakeFiles/std_msgs_generate_messages_lisp.dir/build: std_msgs_generate_mess
 .PHONY : pa1/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 
 pa1/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
-	cd /home/brl/pa_ws/build/pa1 && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /my_ros_data/pa_ws/build/pa1 && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : pa1/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 pa1/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend:
-	cd /home/brl/pa_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/brl/pa_ws/src /home/brl/pa_ws/src/pa1 /home/brl/pa_ws/build /home/brl/pa_ws/build/pa1 /home/brl/pa_ws/build/pa1/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /my_ros_data/pa_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /my_ros_data/pa_ws/src /my_ros_data/pa_ws/src/pa1 /my_ros_data/pa_ws/build /my_ros_data/pa_ws/build/pa1 /my_ros_data/pa_ws/build/pa1/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : pa1/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
 
