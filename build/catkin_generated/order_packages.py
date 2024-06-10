@@ -2,4 +2,4 @@
 source_root_dir = '/my_ros_data/pa_ws/src'
 whitelisted_packages = ''.split(';') if '' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/my_ros_data/catkin_ws/devel;/opt/ros/noetic'.split(';') if '/my_ros_data/catkin_ws/devel;/opt/ros/noetic' != '' else []
+underlay_workspaces = '/my_ros_data/pa_ws/devel;/my_ros_data/catkin_ws/devel;/opt/ros/noetic'.split(';') if '/my_ros_data/pa_ws/devel;/my_ros_data/catkin_ws/devel;/opt/ros/noetic' != '' else []

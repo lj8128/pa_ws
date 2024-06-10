@@ -56,6 +56,7 @@ CMAKE_BINARY_DIR = /my_ros_data/pa_ws/build
 all: gtest/all
 all: pa1/all
 all: pa2/all
+all: pa3/all
 
 .PHONY : all
 
@@ -63,6 +64,7 @@ all: pa2/all
 preinstall: gtest/preinstall
 preinstall: pa1/preinstall
 preinstall: pa2/preinstall
+preinstall: pa3/preinstall
 
 .PHONY : preinstall
 
@@ -75,6 +77,7 @@ clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: pa1/clean
 clean: pa2/clean
+clean: pa3/clean
 
 .PHONY : clean
 
@@ -179,6 +182,28 @@ pa2/preinstall:
 pa2/clean: pa2/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 .PHONY : pa2/clean
+
+#=============================================================================
+# Directory level rules for directory pa3
+
+# Recursive "all" directory target.
+pa3/all:
+
+.PHONY : pa3/all
+
+# Recursive "preinstall" directory target.
+pa3/preinstall:
+
+.PHONY : pa3/preinstall
+
+# Recursive "clean" directory target.
+pa3/clean: pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+pa3/clean: pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+pa3/clean: pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+pa3/clean: pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+pa3/clean: pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+
+.PHONY : pa3/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir
@@ -720,6 +745,141 @@ _catkin_empty_exported_target: pa2/CMakeFiles/_catkin_empty_exported_target.dir/
 pa2/CMakeFiles/_catkin_empty_exported_target.dir/clean:
 	$(MAKE) -f pa2/CMakeFiles/_catkin_empty_exported_target.dir/build.make pa2/CMakeFiles/_catkin_empty_exported_target.dir/clean
 .PHONY : pa2/CMakeFiles/_catkin_empty_exported_target.dir/clean
+
+#=============================================================================
+# Target rules for target pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/my_ros_data/pa_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_py: pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_py
+
+# clean rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/my_ros_data/pa_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_nodejs"
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_nodejs: pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# clean rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/my_ros_data/pa_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_lisp"
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_lisp: pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# clean rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/my_ros_data/pa_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_eus"
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_eus: pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_eus
+
+# clean rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/my_ros_data/pa_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_cpp"
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /my_ros_data/pa_ws/build/CMakeFiles 0
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_cpp: pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_cpp
+
+# clean rule for target.
+pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+.PHONY : pa3/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

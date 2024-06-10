@@ -133,6 +133,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/my_ros_data/pa_ws/build/gtest/cmake_install.cmake")
   include("/my_ros_data/pa_ws/build/pa1/cmake_install.cmake")
   include("/my_ros_data/pa_ws/build/pa2/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/pa3/cmake_install.cmake")
 
 endif()
 
