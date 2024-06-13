@@ -19,6 +19,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "pa2/catkin_generated/package.cmake"
   "pa3/catkin_generated/ordered_paths.cmake"
   "pa3/catkin_generated/package.cmake"
+  "pa5/catkin_generated/ordered_paths.cmake"
+  "pa5/catkin_generated/package.cmake"
   "/my_ros_data/pa_ws/src/CMakeLists.txt"
   "/my_ros_data/pa_ws/src/pa1/CMakeLists.txt"
   "/my_ros_data/pa_ws/src/pa1/package.xml"
@@ -26,6 +28,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/my_ros_data/pa_ws/src/pa2/package.xml"
   "/my_ros_data/pa_ws/src/pa3/CMakeLists.txt"
   "/my_ros_data/pa_ws/src/pa3/package.xml"
+  "/my_ros_data/pa_ws/src/pa5/CMakeLists.txt"
+  "/my_ros_data/pa_ws/src/pa5/package.xml"
   "/opt/ros/noetic/share/catkin/cmake/all.cmake"
   "/opt/ros/noetic/share/catkin/cmake/assert.cmake"
   "/opt/ros/noetic/share/catkin/cmake/atomic_configure_file.cmake"
@@ -209,6 +213,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "pa1/CMakeFiles/CMakeDirectoryInformation.cmake"
   "pa2/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "pa5/CMakeFiles/CMakeDirectoryInformation.cmake"
   "pa3/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

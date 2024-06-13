@@ -7,4 +7,5 @@
 subdirs("gtest")
 subdirs("pa1")
 subdirs("pa2")
+subdirs("pa5")
 subdirs("pa3")
