@@ -1,0 +1,8 @@
+prefix=/my_ros_data/pa_ws/install
+
+Name: pa5
+Description: Description of pa5
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
