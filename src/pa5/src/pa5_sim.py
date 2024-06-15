@@ -4,7 +4,7 @@ import rospy
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
 
-class PaFive:
+class PaFiveSim:
     def __init__(self):
         self.cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
         self.scan_sub = rospy.Subscriber('/scan', LaserScan, self.scan_cb)
@@ -74,5 +74,5 @@ class PaFive:
             rate.sleep()
 
 if __name__ == '__main__':
-    rospy.init_node('pa5')
-    PaFive().follow_wall()
+    rospy.init_node('pa5_sim')
+    PaFiveSim().follow_wall()
