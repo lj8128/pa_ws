@@ -34,6 +34,6 @@ class PaOne:
 if __name__ == '__main__':
     rospy.init_node('pa1')
     PaOne().out_and_back(0.5)
-    #PaOne().draw_square(0.3)
-    #PaOne().move_in_a_circle(0.15)
+    # PaOne().draw_square(0.3)
+    # PaOne().move_in_a_circle(0.3)
 
