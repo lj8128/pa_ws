@@ -31,5 +31,6 @@ original pose. Spamming the command may sometimes be necessary.
 
 2. Use [format specifiers](https://peps.python.org/pep-0498/#format-specifiers)
 with f-strings to truncate long floats. It's easy to misread `number =
-4.38411315886986e-06` as a large number if you miss the trailing exponent, but
-`print(f'{number:9.4f}')` yields `0.0000` which is much less misleading.
+4.38411315886986e-06` as a large value if you miss the exponent `e-06` near the
+end, but `print(f'{number:9.4f}')` yields `0.0000` which is much less
+misleading.
