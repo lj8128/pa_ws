@@ -659,6 +659,9 @@ OGRE_Volume_LIBRARY_FWK:STRING=NOTFOUND
 //x
 OGRE_Volume_LIBRARY_REL:FILEPATH=/usr/lib/x86_64-linux-gnu/libOgreVolume.so
 
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/opencv4
+
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
@@ -747,6 +750,9 @@ ZeroMQ_DIR:PATH=ZeroMQ_DIR-NOTFOUND
 ZeroMQ_LIBRARY_zmq:FILEPATH=/usr/lib/x86_64-linux-gnu/libzmq.so
 
 //Path to a file.
+_file_name:FILEPATH=/my_ros_data/pa_ws/src/fiducials/aruco_detect/test/aruco_images.test
+
+//Path to a file.
 _gmock_INCLUDES:FILEPATH=/usr/src/googletest/googlemock/include/gmock/gmock.h
 
 //Path to a file.
@@ -763,6 +769,15 @@ actionlib_DIR:PATH=/opt/ros/noetic/share/actionlib/cmake
 
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/noetic/share/actionlib_msgs/cmake
+
+//Value Computed by CMake
+aruco_detect_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/fiducials/aruco_detect
+
+//The directory containing a CMake configuration file for aruco_detect.
+aruco_detect_DIR:PATH=/my_ros_data/pa_ws/devel/share/aruco_detect/cmake
+
+//Value Computed by CMake
+aruco_detect_SOURCE_DIR:STATIC=/my_ros_data/pa_ws/src/fiducials/aruco_detect
 
 //The directory containing a CMake configuration file for boost_atomic.
 boost_atomic_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_atomic-1.71.0
@@ -791,11 +806,20 @@ boost_system_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_system-1.71.0
 //The directory containing a CMake configuration file for boost_thread.
 boost_thread_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_thread-1.71.0
 
+//The directory containing a CMake configuration file for camera_calibration_parsers.
+camera_calibration_parsers_DIR:PATH=/opt/ros/noetic/share/camera_calibration_parsers/cmake
+
+//The directory containing a CMake configuration file for camera_info_manager.
+camera_info_manager_DIR:PATH=/opt/ros/noetic/share/camera_info_manager/cmake
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
 //The directory containing a CMake configuration file for ccd.
 ccd_DIR:PATH=ccd_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for class_loader.
+class_loader_DIR:PATH=/opt/ros/noetic/share/class_loader/cmake
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/noetic/share/cpp_common/cmake
@@ -805,6 +829,30 @@ cv_bridge_DIR:PATH=/opt/ros/noetic/share/cv_bridge/cmake
 
 //The directory containing a CMake configuration file for dynamic_reconfigure.
 dynamic_reconfigure_DIR:PATH=/opt/ros/noetic/share/dynamic_reconfigure/cmake
+
+//Value Computed by CMake
+fiducial_msgs_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/fiducials/fiducial_msgs
+
+//The directory containing a CMake configuration file for fiducial_msgs.
+fiducial_msgs_DIR:PATH=/my_ros_data/pa_ws/devel/share/fiducial_msgs/cmake
+
+//Value Computed by CMake
+fiducial_msgs_SOURCE_DIR:STATIC=/my_ros_data/pa_ws/src/fiducials/fiducial_msgs
+
+//Value Computed by CMake
+fiducial_slam_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/fiducials/fiducial_slam
+
+//The directory containing a CMake configuration file for fiducial_slam.
+fiducial_slam_DIR:PATH=/my_ros_data/pa_ws/devel/share/fiducial_slam/cmake
+
+//Value Computed by CMake
+fiducial_slam_SOURCE_DIR:STATIC=/my_ros_data/pa_ws/src/fiducials/fiducial_slam
+
+//Value Computed by CMake
+fiducials_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/fiducials/fiducials
+
+//Value Computed by CMake
+fiducials_SOURCE_DIR:STATIC=/my_ros_data/pa_ws/src/fiducials/fiducials
 
 //The directory containing a CMake configuration file for gazebo.
 gazebo_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/gazebo
@@ -906,11 +954,14 @@ ignition-msgs5_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/ignition-msgs5
 //The directory containing a CMake configuration file for ignition-transport8.
 ignition-transport8_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/ignition-transport8
 
+//The directory containing a CMake configuration file for image_transport.
+image_transport_DIR:PATH=/opt/ros/noetic/share/image_transport/cmake
+
 //The directory containing a CMake configuration file for jsoncpp.
 jsoncpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/jsoncpp
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libroscpp_serialization.so
+lib:FILEPATH=/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/noetic/share/message_filters/cmake
@@ -947,6 +998,12 @@ pa3_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/pa3
 
 //Value Computed by CMake
 pa3_SOURCE_DIR:STATIC=/my_ros_data/pa_ws/src/pa3
+
+//Value Computed by CMake
+pa4_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/pa4
+
+//Value Computed by CMake
+pa4_SOURCE_DIR:STATIC=/my_ros_data/pa_ws/src/pa4
 
 //Value Computed by CMake
 pa5_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/pa5
@@ -1017,6 +1074,9 @@ pkgcfg_lib_ZIP_zip:FILEPATH=/usr/lib/x86_64-linux-gnu/libzip.so
 //Path to a library.
 pkgcfg_lib_ZeroMQ_zmq:FILEPATH=/usr/lib/x86_64-linux-gnu/libzmq.so
 
+//The directory containing a CMake configuration file for pluginlib.
+pluginlib_DIR:PATH=/opt/ros/noetic/share/pluginlib/cmake
+
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/noetic/share/rosconsole/cmake
 
@@ -1044,6 +1104,9 @@ rospack_DIR:PATH=/opt/ros/noetic/share/rospack/cmake
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
 
+//The directory containing a CMake configuration file for rostest.
+rostest_DIR:PATH=/opt/ros/noetic/share/rostest/cmake
+
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 
@@ -1053,6 +1116,15 @@ sdformat9_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/sdformat9
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/noetic/share/sensor_msgs/cmake
 
+//Dependencies for the target
+stag_core_LIB_DEPENDS:STATIC=general;opencv_calib3d;general;opencv_core;general;opencv_dnn;general;opencv_features2d;general;opencv_flann;general;opencv_highgui;general;opencv_imgcodecs;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_stitching;general;opencv_video;general;opencv_videoio;general;opencv_aruco;general;opencv_bgsegm;general;opencv_bioinspired;general;opencv_ccalib;general;opencv_datasets;general;opencv_dnn_objdetect;general;opencv_dnn_superres;general;opencv_dpm;general;opencv_face;general;opencv_freetype;general;opencv_fuzzy;general;opencv_hdf;general;opencv_hfs;general;opencv_img_hash;general;opencv_line_descriptor;general;opencv_optflow;general;opencv_phase_unwrapping;general;opencv_plot;general;opencv_quality;general;opencv_reg;general;opencv_rgbd;general;opencv_saliency;general;opencv_shape;general;opencv_stereo;general;opencv_structured_light;general;opencv_superres;general;opencv_surface_matching;general;opencv_text;general;opencv_tracking;general;opencv_videostab;general;opencv_viz;general;opencv_ximgproc;general;opencv_xobjdetect;general;opencv_xphoto;
+
+//Value Computed by CMake
+stag_detect_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/fiducials/stag_detect
+
+//Value Computed by CMake
+stag_detect_SOURCE_DIR:STATIC=/my_ros_data/pa_ws/src/fiducials/stag_detect
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
 
@@ -1061,6 +1133,9 @@ std_srvs_DIR:PATH=/opt/ros/noetic/share/std_srvs/cmake
 
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/noetic/share/tf2/cmake
+
+//The directory containing a CMake configuration file for tf2_geometry_msgs.
+tf2_geometry_msgs_DIR:PATH=/opt/ros/noetic/share/tf2_geometry_msgs/cmake
 
 //The directory containing a CMake configuration file for tf2_msgs.
 tf2_msgs_DIR:PATH=/opt/ros/noetic/share/tf2_msgs/cmake
@@ -1097,6 +1172,12 @@ turtlebot3_simulations_BINARY_DIR:STATIC=/my_ros_data/pa_ws/build/turtlebot3_sim
 
 //Value Computed by CMake
 turtlebot3_simulations_SOURCE_DIR:STATIC=/my_ros_data/pa_ws/src/turtlebot3_simulations/turtlebot3_simulations
+
+//The directory containing a CMake configuration file for vision_msgs.
+vision_msgs_DIR:PATH=/opt/ros/noetic/share/vision_msgs/cmake
+
+//The directory containing a CMake configuration file for visualization_msgs.
+visualization_msgs_DIR:PATH=/opt/ros/noetic/share/visualization_msgs/cmake
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
@@ -1289,7 +1370,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1364,6 +1445,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_DART:INTERNAL=[/usr/include][dart;dart;dart][cfound
 FIND_PACKAGE_MESSAGE_DETAILS_DL:INTERNAL=[true][v()]
 //Details about finding JSONCPP
 FIND_PACKAGE_MESSAGE_DETAILS_JSONCPP:INTERNAL=[TRUE][v()]
+//Details about finding OpenCV
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr][v4.2.0()]
 //Details about finding PY_em
 FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/usr/lib/python3/dist-packages/em.py][v()]
 //Details about finding PkgConfig

@@ -131,10 +131,16 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/my_ros_data/pa_ws/build/gtest/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/fiducials/fiducials/cmake_install.cmake")
   include("/my_ros_data/pa_ws/build/pa1/cmake_install.cmake")
   include("/my_ros_data/pa_ws/build/pa2/cmake_install.cmake")
   include("/my_ros_data/pa_ws/build/pa5/cmake_install.cmake")
   include("/my_ros_data/pa_ws/build/pa3/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/fiducials/fiducial_msgs/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/fiducials/fiducial_slam/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/fiducials/aruco_detect/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/pa4/cmake_install.cmake")
+  include("/my_ros_data/pa_ws/build/fiducials/stag_detect/cmake_install.cmake")
 
 endif()
 

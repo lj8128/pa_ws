@@ -1,2 +1,2 @@
-pa1:pa2:pa3:pa5
+fiducials/aruco_detect:fiducials/fiducial_msgs:fiducials/fiducial_slam:fiducials/fiducials:fiducials/stag_detect:pa1:pa2:pa3:pa4:pa5
 -DCATKIN_DEVEL_PREFIX=/my_ros_data/pa_ws/devel -DCMAKE_INSTALL_PREFIX=/my_ros_data/pa_ws/install -G Unix Makefiles
