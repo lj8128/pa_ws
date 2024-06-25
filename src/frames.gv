@@ -1,0 +1,12 @@
+digraph G {
+"camera_rgb_optical_frame" -> "fiducial_0"[label="Broadcaster: /aruco_detect\nAverage rate: 11.045 Hz\nMost recent transform: 911.204 ( 2.220 sec old)\nBuffer length: 2.354 sec\n"];
+"odom" -> "base_footprint"[label="Broadcaster: /gazebo\nAverage rate: 30.233 Hz\nMost recent transform: 913.413 ( 0.011 sec old)\nBuffer length: 4.333 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 913.424"[ shape=plaintext ] ;
+ }->"camera_rgb_optical_frame";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 913.424"[ shape=plaintext ] ;
+ }->"odom";
+}

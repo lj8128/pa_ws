@@ -1,13 +1,13 @@
 <launch>  
-    <include file="$(find aruco_detect)/launch/aruco_detect.launch">
-        <param name="publish_images" value="true" />
-        <arg name="do_pose_estimation" value="true" />
-        <arg name="vis_msgs" value="true" />
-        <arg name="fiducial_len" value="0.1778" />
-        <arg name="dictionary" value="16" />
-        <arg name="camera" value="camera/rgb" />
-        <arg name="image" value="image_raw" />
-    </include>
+  <include file="$(find aruco_detect)/launch/aruco_detect.launch">
+      <param name="publish_images" value="true" />
+      <arg name="do_pose_estimation" value="true" />
+      <arg name="vis_msgs" value="true" />
+      <arg name="fiducial_len" value="0.1778" />
+      <arg name="dictionary" value="16" />
+      <arg name="camera" value="camera/rgb" />
+      <arg name="image" value="image_raw" />
+  </include>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find pa4)/worlds/fiducials.world"/>
@@ -17,4 +17,6 @@
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>  
+
+  <node name="map_frame_broadcaster" pkg="pa4" type="map_frame_broadcaster.py" output="screen" />
 </launch>
