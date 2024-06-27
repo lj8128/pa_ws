@@ -18,13 +18,13 @@ class Mapper:
             tfs = TransformStamped()
             tfs.header.frame_id = 'odom'
             tfs.child_frame_id = f'pin_{id}'
-            self.pin_dict[id, {'tfs': tfs, 'mapped': false}]
+            self.pin_dict[id] = {'tfs': tfs, 'mapped': False}
 
     def run(self):
         rate = rospy.Rate(10)
 
         while not rospy.is_shutdown():
-            for fid_id, pin in pin_dict.items():
+            for fid_id, pin in self.pin_dict.items():
                 try:
                     if not pin['mapped']:
                         odom_to_fid_tf = self.tf_buffer.lookup_transform('odom',
@@ -43,7 +43,9 @@ class Mapper:
                     pin['tfs'].header.stamp = rospy.Time.now()
                     self.tf_broadcaster.sendTransform(pin['tfs'])
 
-                except (tf2_ros.LookupException, tf2_ros.ExtrapolationException):
+                except (tf2_ros.LookupException,
+                        tf2_ros.ExtrapolationException,
+                        tf2_ros.ConnectivityException):
                     continue
             
             rate.sleep()
