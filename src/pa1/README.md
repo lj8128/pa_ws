@@ -1,5 +1,11 @@
 # PA1
 
+## How to Run
+
+1. `roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch`
+2. Comment in or out lines under `if __name__=='__main__':` in `pa1_answer.py` for desired behavior.  
+3. `rosrun pa1 pa1_answer.py`
+
 ## Instructions
 
 Drive the robot:
