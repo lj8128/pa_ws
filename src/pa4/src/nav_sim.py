@@ -4,7 +4,7 @@ import rospy
 import tf2_ros
 from geometry_msgs.msg import Twist
 
-class PaFourSim:
+class NavSim:
     def __init__(self):
         self.cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
         self.twist = Twist()
@@ -41,4 +41,4 @@ class PaFourSim:
 
 if __name__ == '__main__':
     rospy.init_node('pa4_sim')
-    PaFourSim().move_to_fiducial(1)
+    NavSim().move_to_fiducial(1)

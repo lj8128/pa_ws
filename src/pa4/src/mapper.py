@@ -11,44 +11,46 @@ class Mapper:
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
         self.tf_broadcaster = tf2_ros.TransformBroadcaster()
-        self.fiducial_ids = 
+        self.pin_dict = {}
 
+    def set_pins(self, fid_ids):
+        for id in fid_ids:
+            tfs = TransformStamped()
+            tfs.header.frame_id = 'odom'
+            tfs.child_frame_id = f'pin_{id}'
+            self.pin_dict[id, {'tfs': tfs, 'mapped': false}]
+
+    def run(self):
         rate = rospy.Rate(10)
 
-        target_tfs = TransformStamped()
-        target_tfs.header.frame_id = 'odom'
-        target_tfs.child_frame_id = 'target_Z'
-
-        rate = rospy.Rate(10.0)
-
-        tf_not_set = True 
-
         while not rospy.is_shutdown():
+            for fid_id, pin in pin_dict.items():
+                try:
+                    if not pin['mapped']:
+                        odom_to_fid_tf = self.tf_buffer.lookup_transform('odom',
+                                                                f'fiducial_{fid_id}',
+                                                                rospy.Time()).transform
+                        pin['tfs'].transform.translation = odom_to_fid_tf.translation
 
-            try:
-                if tf_not_set:
-                    odom_to_fid_tf = self.tf_buffer.lookup_transform('odom',
-                                                            'fiducial_0',
-                                                            rospy.Time()).transform
-                    target_tfs.transform.translation.x = odom_to_fid_tf.translation.x
-                    target_tfs.transform.translation.y = odom_to_fid_tf.translation.y
-                    target_tfs.transform.translation.z = odom_to_fid_tf.translation.z
-                    q = quaternion_from_euler(0.0, 0.0, 0.0)
+                        q = quaternion_from_euler(0.0, 0.0, 0.0)
+                        (pin['tfs'].transform.rotation.x,
+                        pin['tfs'].transform.rotation.y,
+                        pin['tfs'].transform.rotation.z,
+                        pin['tfs'].transform.rotation.w) = q
 
-                    target_tfs.transform.rotation.x = q[0]
-                    target_tfs.transform.rotation.y = q[1]
-                    target_tfs.transform.rotation.z = q[2]
-                    target_tfs.transform.rotation.w = q[3]
-                    tf_not_set = False
+                        pin['mapped'] = True
 
-                target_tfs.header.stamp = rospy.Time.now()
-                self.tf_broadcaster.sendTransform(target_tfs)
+                    pin['tfs'].header.stamp = rospy.Time.now()
+                    self.tf_broadcaster.sendTransform(pin['tfs'])
 
-            except (tf2_ros.LookupException, tf2_ros.ExtrapolationException):
-                continue
+                except (tf2_ros.LookupException, tf2_ros.ExtrapolationException):
+                    continue
             
             rate.sleep()
 
 if __name__ == '__main__':
     rospy.init_node('mapper')
-    Mapper()
+    mapper = Mapper()
+    fid_ids = [0, 1, 2, 3]
+    mapper.set_pins(fid_ids)
+    mapper.run()
