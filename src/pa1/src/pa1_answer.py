@@ -22,8 +22,6 @@ class PaOne:
         # by adding the distance between old_pose and cur_pose. 
         if self.old_pose is not None and not self.is_turning:
             self.traveled_dist += self.cur_dist(cur_pose.position)
-        else:
-            self.old_pose = Pose()
 
         # Find the current yaw of the robot.
         self.update_yaw(cur_pose.orientation)
