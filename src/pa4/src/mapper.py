@@ -27,9 +27,10 @@ class Mapper:
             for fid_id, pin in self.pin_dict.items():
                 try:
                     if not pin['mapped']:
-                        odom_to_fid_tf = self.tf_buffer.lookup_transform('odom',
-                                                                f'fiducial_{fid_id}',
-                                                                rospy.Time()).transform
+                        odom_to_fid_tf = self.tf_buffer.lookup_transform(
+                            'odom',
+                            f'fiducial_{fid_id}',
+                            rospy.Time()).transform
                         pin['tfs'].transform.translation = odom_to_fid_tf.translation
 
                         q = quaternion_from_euler(0.0, 0.0, 0.0)
@@ -43,9 +44,11 @@ class Mapper:
                     pin['tfs'].header.stamp = rospy.Time.now()
                     self.tf_broadcaster.sendTransform(pin['tfs'])
 
-                except (tf2_ros.LookupException,
-                        tf2_ros.ExtrapolationException,
-                        tf2_ros.ConnectivityException):
+                except (
+                    tf2_ros.LookupException,
+                    tf2_ros.ExtrapolationException,
+                    tf2_ros.ConnectivityException
+                    ):
                     continue
             
             rate.sleep()
