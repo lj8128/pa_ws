@@ -95,8 +95,8 @@ class NavSim:
             f'pin_{pin_id}',
             rospy.Time()
         ).transform.translation
-        yaw = math.pi / 2 - math.atan(
-            base_to_pin_transl.x / base_to_pin_transl.y
+        yaw = math.atan(
+            base_to_pin_transl.y / base_to_pin_transl.x
             )
         self.turn_to_heading(yaw, 0.2)
 
