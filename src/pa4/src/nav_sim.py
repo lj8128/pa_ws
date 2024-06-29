@@ -22,7 +22,7 @@ class NavSim:
         # The value D such that, when the distance between the robot's base_link
         # frame's origin and the origin of the pin it's travelling towards
         # equals D meters, the robot should stop.
-        self.HALT_DIST = 0.3 
+        self.HALT_DIST = 0.35
         
     def odom_cb(self, msg):
         """Callback function for `odom_sub`."""
