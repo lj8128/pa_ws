@@ -5,18 +5,19 @@ import numpy as np
 import rospy
 import tf2_ros
 from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Pose, Twist
+from geometry_msgs.msg import Point, Pose, Twist
 from tf.transformations import euler_from_quaternion
 
 class NavSim:
     def __init__(self):
-        self.odom_sub = rospy.Subscriber('odom', Odometry, self.odom_cb)
+        self.my_odom_sub = rospy.Subscriber('my_odom', Point, self.my_odom_cb)
         self.cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
+
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
+
         self.twist = Twist()
-        self.traveled_dist = 0.0
-        self.old_pose = None
+        self.total_dist = 0.0
         self.cur_yaw = 0.0
 
         # The value D such that, when the distance between the robot's base_link
@@ -24,36 +25,12 @@ class NavSim:
         # equals D meters, the robot should stop.
         self.HALT_DIST = 0.35
         
-    def odom_cb(self, msg):
+    def my_odom_cb(self, msg):
         """Callback function for `odom_sub`."""
-        cur_pose = msg.pose.pose
-       
-        # Update the distance traveled by the robot each time odom_cb is called,
-        # by adding the distance between old_pose and cur_pose. 
-        if self.old_pose is not None:
-            self.traveled_dist += self.cur_dist(cur_pose.position)
-
-        self.old_pose = cur_pose
-        self.update_yaw(cur_pose.orientation)
-
-    def cur_dist(self, cur_position):
-        """
-        Helper to `odom_cb`.
-        Calculates the distance between `old_pose` and `cur_pose`.
-        """
-        x_diff = cur_position.x - self.old_pose.position.x
-        y_diff = cur_position.y - self.old_pose.position.y
-        return math.sqrt(x_diff ** 2 + y_diff ** 2)
-
-    def update_yaw(self, cur_orientation):
-        orientations = [cur_orientation.x,
-                cur_orientation.y,
-                cur_orientation.z,
-                cur_orientation.w]
-        (roll, pitch, yaw) = euler_from_quaternion(orientations)
-        if yaw < 0:
-            yaw = 2 * math.pi + yaw
-        self.cur_yaw = yaw
+        cur_dist = msg.x
+        cur_yaw = msg.y
+        self.total_dist += cur_dist 
+        self.cur_yaw = cur_yaw
 
     def find_ang_vel(self, target_heading, base_vel):
         return base_vel * (target_heading - self.cur_yaw)
@@ -152,14 +129,14 @@ class NavSim:
     def move_to_pin(self, pin_id):
         rospy.loginfo(f'---> Moving to pin_{pin_id}...')
         # Reset distance traveled
-        self.traveled_dist = 0.0
+        self.total_dist = 0.0
         target_dist = self.get_dist_base_to_pin(pin_id) - self.HALT_DIST
 
         rate = rospy.Rate(10)
 
         while (
             not rospy.is_shutdown() and 
-            not math.isclose(self.traveled_dist, target_dist, abs_tol=0.05)
+            not math.isclose(self.total_dist, target_dist, abs_tol=0.05)
         ):
             self.twist.linear.x = 0.05
             self.cmd_vel_pub.publish(self.twist)

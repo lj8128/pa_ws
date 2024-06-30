@@ -19,4 +19,5 @@
   </include>
 
   <node name="mapper" pkg="pa4" type="mapper.py" output="screen" />
+  <node name="my_odom" pkg="pa4" type="my_odom.py" output="screen" />
 </launch>
