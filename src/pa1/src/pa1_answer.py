@@ -8,7 +8,7 @@ from tf.transformations import euler_from_quaternion
 class PaOne:
     def __init__(self):
         self.cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
-        self.odom_sub = rospy.Subscriber('/odom', Odometry, self.odom_cb)
+        self.odom_sub = rospy.Subscriber('odom', Odometry, self.odom_cb)
         self.traveled_dist = 0.0
         self.old_pose = None
         self.is_turning = False
