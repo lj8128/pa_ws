@@ -4,7 +4,6 @@ import math
 import numpy as np
 import rospy
 import tf2_ros
-from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Point, Pose, Twist
 from tf.transformations import euler_from_quaternion
 
@@ -26,7 +25,7 @@ class NavSim:
         self.HALT_DIST = 0.35
         
     def my_odom_cb(self, msg):
-        """Callback function for `odom_sub`."""
+        """Callback function for `my_odom_sub`."""
         cur_dist = msg.x
         cur_yaw = msg.y
         self.total_dist += cur_dist 
