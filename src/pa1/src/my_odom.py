@@ -1,12 +1,5 @@
 #!/usr/bin/env python3
 
-# Revise this node to have it publish incremental distances between the old pose
-# and the cur pose. Do the total_dist calculation in the node that subscribes to
-# the It makes sense to do this since sometimes, in controlling the motion of
-# the robot (which the my_odom node shouldn't be responsible for) we want to set
-# the total distance travelled by the robot to 0 (cf. the move_to_pin mehthod in
-# the nav_sim node).
-
 import rospy
 import math
 from nav_msgs.msg import Odometry
@@ -31,28 +24,26 @@ class MyOdom:
     def update_dist(self, cur_pose):
         """
         Helper to `odom_cb`.
-        Updates `dist` to the distance between `old_pose` and `cur_pose`.
+        Updates `self.dist` to the distance between `self.old_pose` and
+        `cur_pose`.
         """
-        if self.old_pose is not None:
-            x_diff = cur_pose.position.x - self.old_pose.position.x
-            y_diff = cur_pose.position.y - self.old_pose.position.y
-            self.dist = math.sqrt(x_diff ** 2 + y_diff ** 2)
-        self.old_pose = cur_pose
+        raise NotImplementedError
 
     def update_yaw(self, cur_orientation):
-        orientations = [cur_orientation.x,
-                cur_orientation.y,
-                cur_orientation.z,
-                cur_orientation.w]
-        (roll, pitch, yaw) = euler_from_quaternion(orientations)
-        self.yaw = yaw if yaw >= 0 else 2 * math.pi + yaw
+        """
+        Helper to `odom_cb`.
+        Updates `self.yaw` to current heading of robot.
+        """
+        raise NotImplementedError
 
     def publish_data(self):
-        data = Point()
-        data.x = self.dist
-        data.y = self.yaw
-        self.my_odom_pub.publish(data)
-
+        """
+        Publish `self.dist` and `self.yaw` on the `my_odom` topic.
+        """
+        # The `Point` object should be used simply as a data container for
+        # `self.dist` and `self.yaw` so we can publish it on `my_odom`.
+        raise NotImplementedError
+        
 if __name__ == '__main__':
     rospy.init_node('my_odom')
     MyOdom()

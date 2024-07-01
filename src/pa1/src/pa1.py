@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 import math
 import rospy
-from geometry_msgs.msg import Pose, Twist
-from nav_msgs.msg import Odometry
+from geometry_msgs.msg import Point, Pose, Twist
 from tf.transformations import euler_from_quaternion
 
 class PaOne:
     def __init__(self):
         self.cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
-        self.odom_sub = rospy.Subscriber('/odom', Odometry, self.odom_cb)
+        self.odom_sub = rospy.Subscriber('my_odom', Point, self.my_odom_cb)
 
-    def odom_cb(self, msg):
-        """Callback function for `self.odom_sub`."""
+    def my_odom_cb(self, msg):
+        """Callback function for `self.my_odom_sub`."""
         raise NotImplementedError
         
     def out_and_back(self, target_dist):

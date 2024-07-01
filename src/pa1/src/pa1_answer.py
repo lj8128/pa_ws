@@ -13,7 +13,7 @@ class PaOne:
         self.cur_yaw = None
 
     def my_odom_cb(self, msg):
-        """Callback function for `my_odom_sub`."""
+        """Callback function for `self.my_odom_sub`."""
         cur_dist = msg.x
         cur_yaw = msg.y
         self.total_dist += cur_dist 
@@ -107,6 +107,17 @@ class PaOne:
         while not rospy.is_shutdown():
             twist.linear.x = linear_velocity
             twist.angular.z = angular_velocity
+            self.cmd_vel_pub.publish(twist)
+            rate.sleep()
+
+    def rotate_in_place(self):
+        """For debugging."""
+        twist = Twist()
+        
+        rate = rospy.Rate(10)
+
+        while not rospy.is_shutdown():
+            twist.angular.z = 0.1
             self.cmd_vel_pub.publish(twist)
             rate.sleep()
 
