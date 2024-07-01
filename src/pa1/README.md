@@ -22,10 +22,10 @@
 
 Drive the robot:
 
-1. 50cm out, execute a 180-degree turn in-place, and try to get
+1. 1m out, execute a 180-degree turn in-place, and try to get
    the robot back to its original spot.
-2. in a square whose sides measure 30cm.
-3. in a circle with a radius of 30cm.
+2. in a square whose sides measure 1m.
+3. in a circle with a radius of 1m.
 
 ## PRR Readings
 
@@ -33,12 +33,13 @@ Reference:
 
 1. Chapter 2, Section "Poses, Positions and Orientations": on frames, positions,
    orientations, and poses pp.26-27;
-2. Chapter 6, Section "Actuation: Mobile Platform": on mobile platform actuation
-   (pp.77-80);
-3. Chapter 6, Section "Shaft encoders" on odometry (pp.85-87);
-4. Chapter 6, Section "Simulators" on simulators in general (pp.92-93);
-5. Chapter 6, Section "Gazebo" on Gazebo in particular (pp.95-96);
-6. Chapter 7, from start till end of Section "Creating a Package" on basic
+2. Chapter 6:
+   1. Section "Actuation: Mobile Platform": on mobile platform actuation
+      (pp.77-80);
+   2. Section "Shaft encoders" on odometry (pp.85-87);
+   3. Section "Simulators" on simulators in general (pp.92-93);
+   4. Section "Gazebo" on Gazebo in particular (pp.95-96);
+3. Chapter 7, from start till end of Section "Creating a Package" on basic
    mobile platform actuation with the Wander-bot (pp.99-103).
 
 ## Other Resources
