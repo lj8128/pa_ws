@@ -31,15 +31,15 @@ Drive the robot:
 
 Reference:
 
-1. Chapter 2, Section "Poses, Positions and Orientations": on frames, positions,
+1. Chapter 2, section "Poses, Positions and Orientations": on frames, positions,
    orientations, and poses pp.26-27;
 2. Chapter 6:
-   1. Section "Actuation: Mobile Platform": on mobile platform actuation
+   1. section "Actuation: Mobile Platform": on mobile platform actuation
       (pp.77-80);
-   2. Section "Shaft encoders" on odometry (pp.85-87);
-   3. Section "Simulators" on simulators in general (pp.92-93);
-   4. Section "Gazebo" on Gazebo in particular (pp.95-96);
-3. Chapter 7, from start till end of Section "Creating a Package" on basic
+   2. section "Shaft encoders" on odometry (pp.85-87);
+   3. section "Simulators" on simulators in general (pp.92-93);
+   4. section "Gazebo" on Gazebo in particular (pp.95-96);
+3. Chapter 7, from start till end of section "Creating a Package" on basic
    mobile platform actuation with the Wander-bot (pp.99-103).
 
 ## Other Resources
