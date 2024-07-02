@@ -4,19 +4,19 @@ import math
 import numpy as np
 import rospy
 import tf2_ros
-from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Pose, Twist
+from geometry_msgs.msg import Point, Pose, Twist
 from tf.transformations import euler_from_quaternion
 
 class NavSim:
     def __init__(self):
-        self.odom_sub = rospy.Subscriber('odom', Odometry, self.odom_cb)
+        self.my_odom_sub = rospy.Subscriber('my_odom', Point, self.my_odom_cb)
         self.cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
+
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
+
         self.twist = Twist()
-        self.traveled_dist = 0.0
-        self.old_pose = None
+        self.total_dist = 0.0
         self.cur_yaw = 0.0
 
         # The value D such that, when the distance between the robot's base_link
@@ -24,41 +24,22 @@ class NavSim:
         # equals D meters, the robot should stop.
         self.HALT_DIST = 0.35
         
-    def odom_cb(self, msg):
-        """Callback function for `odom_sub`."""
-        cur_pose = msg.pose.pose
-       
-        # Update the distance traveled by the robot each time odom_cb is called,
-        # by adding the distance between old_pose and cur_pose. 
-        if self.old_pose is not None:
-            self.traveled_dist += self.cur_dist(cur_pose.position)
-
-        self.old_pose = cur_pose
-        self.update_yaw(cur_pose.orientation)
-
-    def cur_dist(self, cur_position):
-        """
-        Helper to `odom_cb`.
-        Calculates the distance between `old_pose` and `cur_pose`.
-        """
-        x_diff = cur_position.x - self.old_pose.position.x
-        y_diff = cur_position.y - self.old_pose.position.y
-        return math.sqrt(x_diff ** 2 + y_diff ** 2)
-
-    def update_yaw(self, cur_orientation):
-        orientations = [cur_orientation.x,
-                cur_orientation.y,
-                cur_orientation.z,
-                cur_orientation.w]
-        (roll, pitch, yaw) = euler_from_quaternion(orientations)
-        if yaw < 0:
-            yaw = 2 * math.pi + yaw
-        self.cur_yaw = yaw
+    def my_odom_cb(self, msg):
+        """Callback function for `my_odom_sub`."""
+        cur_dist = msg.x
+        cur_yaw = msg.y
+        self.total_dist += cur_dist 
+        self.cur_yaw = cur_yaw
 
     def find_ang_vel(self, target_heading, base_vel):
+        """Helper to `turn_to_heading`."""
         return base_vel * (target_heading - self.cur_yaw)
 
     def turn_to_heading(self, target_yaw, base_vel):
+        """
+        Turns the robot to heading `target_yaw` with a base velocity of
+        `base_vel`.
+        """
         rate = rospy.Rate(10)
         while (
             not rospy.is_shutdown() and
@@ -71,11 +52,19 @@ class NavSim:
         self.cmd_vel_pub.publish(self.twist)
 
     def scan_for_fids(self):
+        """
+        Scans for fiducials by rotating in place. Note that the `mapper` node 
+        does the actual mapping.
+        """
         rospy.loginfo(f'---> Scanning for fiducials...')
         target_yaw = math.pi * 2 * (9 / 10)
         self.turn_to_heading(target_yaw, 0.5)
 
     def match_pin_rotation(self, pin_id):
+        """
+        Rotates the robot so that its `base_link` frame's orientation matches
+        that of the target pin's frame.
+        """
         rospy.loginfo(f'---> Matching orientation of pin_{pin_id}...') 
         pin_tf = self.tf_buffer.lookup_transform(
             f'pin_{pin_id}',
@@ -92,6 +81,9 @@ class NavSim:
         self.turn_to_heading(yaw, 0.2) 
 
     def face_pin(self, pin_id):
+        """
+        Rotates the robot so that it faces the target pin.
+        """
         rospy.loginfo(f'---> Facing pin_{pin_id}...') 
         base_to_pin_transl = self.tf_buffer.lookup_transform(
             f'base_link',
@@ -133,6 +125,10 @@ class NavSim:
         self.turn_to_heading(yaw, 0.2)
 
     def get_dist_base_to_pin(self, pin_id):
+        """
+        Returns the distance between the origin of the `base_link` frame and that
+        of the target pin's frame.
+        """
         base_to_pin_transl = self.tf_buffer.lookup_transform(
             f'base_link',
             f'pin_{pin_id}',
@@ -150,16 +146,19 @@ class NavSim:
         )
 
     def move_to_pin(self, pin_id):
+        """
+        Moves the robot to the target pin.
+        """
         rospy.loginfo(f'---> Moving to pin_{pin_id}...')
         # Reset distance traveled
-        self.traveled_dist = 0.0
+        self.total_dist = 0.0
         target_dist = self.get_dist_base_to_pin(pin_id) - self.HALT_DIST
 
         rate = rospy.Rate(10)
 
         while (
             not rospy.is_shutdown() and 
-            not math.isclose(self.traveled_dist, target_dist, abs_tol=0.05)
+            not math.isclose(self.total_dist, target_dist, abs_tol=0.05)
         ):
             self.twist.linear.x = 0.05
             self.cmd_vel_pub.publish(self.twist)
@@ -168,6 +167,10 @@ class NavSim:
         self.cmd_vel_pub.publish(self.twist)
 
     def print_transl(self, pin_id):
+        """
+        For debugging. Prints the x and y translations from the `base_link` frame
+        to the target pin's frame.
+        """
         rate = rospy.Rate(10)
 
         while not rospy.is_shutdown():

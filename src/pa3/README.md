@@ -26,7 +26,8 @@ To-do
 
 ### Sim
 
-1. Using OpenCV, have the simulated robot follow the yellow line in the `line_follower` world.
+1. Using OpenCV, have the simulated robot follow the yellow line in the
+   `line_follower` world.
 
 ### Real
 
@@ -38,4 +39,4 @@ To-do
 
 Note: The PRR Readings are especially important for this assignment.
 
-1. All of Chapter 12 (pp.193-208).
+All of Chapter 12 (pp.193-208).
