@@ -17,8 +17,7 @@ class PaTwo:
 
     def follow_wall(self):
         """
-        Main function that publishes movement commands to the robot based on its
-        state.
+        Makes the robot follow a wall.
         """
         raise NotImplementedError
 
